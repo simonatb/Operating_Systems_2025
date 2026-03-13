@@ -1,5 +1,4 @@
 Изведете всички обикновени файлове в директорията /tmp които са от вашата група, 
 които имат write права за достъп за група или за останалите(o=w)
 
-id //to get my group
-find /tmp -group 512 -perm o=w,g=w
+find /tmp -group $(id -g) -type f \( -perm -g=w -o -perm -o=w \)
