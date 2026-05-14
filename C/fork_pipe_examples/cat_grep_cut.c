@@ -60,7 +60,7 @@ int main(void) {
     if (pid3 < 0) { err(11, "fork failed 3"); }
     if (pid3 == 0) {
         dup2(grepfd[0], 0);
-        close(grepfd[1]);
+        close(grepfd[0]);
 
         execlp("cut", "cut", "-d", ":", "-f5", (char*)NULL);
         err(12, "failed cut");
